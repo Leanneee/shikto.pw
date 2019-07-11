@@ -1,0 +1,11 @@
+* {font:100% georgia;text-align:left;}
+body {background:#FFF;color:#000;font-size:62.5%;padding:0;margin:0;}
+form{font-size:1.2em;}
+img {border:0;}
+h1 {font-size:1.6em;}
+h2 {font-size:1.4em;}
+h3 {font-size:1.2em;}
+h4,h5,h6 {font-size:1em;}
+#wrapper {font-size:1.4em;}
+div,fieldset,input,label{clear:both;display:block;margin:0.5em 0}
+#skip, .tools, #menu, #tools, #subNav, .tertiaryNav li, #footer, .hidden {display:none;}

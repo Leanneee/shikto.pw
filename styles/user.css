@@ -1,0 +1,8 @@
+.Heading2, h2 {color:#0C4387;font:bold 1.4em "Trebuchet MS",arial,sans-serif;}
+.Heading3, h3 {clear:both;color:#0C4387;font:bold 1.3em "Trebuchet MS",arial,sans-serif;line-height:100%;padding:0.5em 0;text-transform:none;}
+.Heading4, h4 {clear:both;color:#0C4387;font:bold 1.2em "Trebuchet MS",arial,sans-serif;line-height:100%;padding:0.5em 0;text-transform:none;}
+.featureLink {color:#3A89A3;font-weight:bold;}
+.buttons {}
+
+/*to correct user styles applied to unwanted h2s when published*/
+.h2 h2 {color:#333;font-size:1.2em;}

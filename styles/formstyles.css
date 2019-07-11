@@ -1,0 +1,15 @@
+
+.jsError {
+	width: 200px;
+	display: none;
+	margin-bottom: 10px;
+	position: absolute;
+}
+
+.jsErrorTitle {
+	padding: 5px 0.7em;
+	color: #cd0a0a;
+	border: 1px solid #cd0a0a;
+	background-color: #fef1ec;
+	font-size: 0.9em;
+}

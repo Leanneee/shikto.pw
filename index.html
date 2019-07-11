@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title></title>
+
+<link href="styles/global.css" type="text/css" rel="stylesheet" media="screen, projector" />
+<link href="styles/print.css" type="text/css" rel="stylesheet" media="print" />
+<link href="styles/formstyles.css" type="text/css" rel="stylesheet" media="screen, projector" />
+
+<style>#header { 
+	background-image: none;
+}
+ h2 { 
+    font-family: Arial, "Times New Roman", Times, serif; 
+    font-size: 16px;
+    font-weight: bold; 
+    color: red;    
+    border-bottom: 1px solid #C6EC8C; 
+} 
+.logo {
+	margin-left: 532px;
+}
+
+.tools {
+	display: none;
+}
+
+#menu {
+	display: none;
+}
+
+#subNav {
+	display: none;
+}
+
+#content {
+	margin-top: 20px;
+	margin-left: 160px;
+}
+
+.jsError {
+	margin-left: 100px;
+}
+
+.subFooter {
+	margin-top: 40px;
+	font-size: 10px;
+	float: left;
+	width: 315px;
+}
+
+</style>
+
+<!--[if lte IE 6]>
+<link type="text/css" rel="stylesheet" media="screen, projector" href="styles/ie6.css" />
+<style>
+.logo {
+	margin-left: 0px;
+}
+</style>
+<script type="text/javascript" src="javascript/pngfix.js"></script>
+<![endif]-->
+<script type="text/javascript" src="javascript/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="javascript/jquery-bpp.js"></script>
+<script type="text/javascript" src="javascript/validate.js"></script>
+
+<script type="text/javascript">
+	
+	document.getElementsByTagName('html')[0].className = 'javascript standards';
+	
+	function validate() {
+
+		var check = 0;
+		
+		if(checkBlank("studentname")) {
+			showError("studentname","You must enter your name.");
+			check++;
+		} else {
+			hideError("studentname");
+		}
+		
+		if (checkBlank("email")) {
+			showError("email","You must enter your email address.");
+			check++;
+		} else if (checkEmail("email")) {
+			showError("email","You must enter a correct email address.");
+			check++;
+		} else {
+			hideError("email");
+		}
+		
+		if(checkBlank("address")) {
+			showError("address","You must enter your address.");
+			check++;
+		} else {
+			hideError("address");
+		}
+		
+		if(checkBlank("postcode")) {
+			showError("postcode","You must enter your postcode.");
+			check++;
+		} else {
+			hideError("postcode");
+		}
+		
+		if(checkBlank("C_SRN")) {
+			showError("C_SRN","You must enter your SRN code.");
+			check++;
+		} else {
+			hideError("C_SRN");
+		}
+		
+		var amt = $("#amount").val();
+		
+		regCheck = (/^ *[0-9]+ *$/.test(amt));
+		
+		if(checkBlank("amount")) {
+			showError("amount","You must enter the amount you are paying.");
+			check++;
+		} else if (regCheck==false) {
+			showError("amount","Please enter the amount in pounds with no &pound; sign or decimal points.");
+			check++;
+		} else {
+			hideError("amount");
+		}
+
+		var drp = document.getElementById("paymentType");
+		var selVal = drp.options[drp.selectedIndex].value;
+
+		if(selVal==0) {
+			showError("paymentType","Please select your method of payment.");
+			check++;
+		} else {
+			hideError("paymentType");
+		}
+		
+		if(check>0) { return false; } else { return true; }
+		
+	}
+	
+</script>
+
+<script type="text/javascript">document.getElementsByTagName('html')[0].className = 'javascript standards';</script>
+
+<link type="text/css" rel="stylesheet" media="screen, projector" href="styles/user.css" />
+
+</head>
+
+<body>	
+
+	
+	<div id="header">
+		<div class="wrapper">
+			<div class="logo"><h1 class="hidden">BPP Business School</h1>
+				<img src="http://www.bppcollegepayments.co.uk/WPTEST/images/doublelogo.jpg" alt="BPP Business School - Preparing you for the professions" />
+			</div>
+		</div>	
+	</div>
+    <div id="main" class="noRightCol">
+		<div class="wrapper">
+			
+            <div id="content">
+				<div class="h1"><h1>Make a payment</h1></div>
+				<div class="mainContentWrap">
+					<div class="mainContent">
+						
+						<div style="padding: 20px;">
+                        
+						
+                        <p>Welcome to our online payment page. Our website will direct you to a secure system that allows you to pay your programme fees via Royal Bank of Scotland's WorldPay service.</p> 
+
+<p>To make a payment you will need your Student Reference Number (SRN), which you can find on your invoice.  Please enter the name of the student as it appears on our records and then select the card type. Please note we do not accept American Express.</p>
+
+<p>Once your payment has been successful, you will receive an e-mail from World Pay confirming the payment and a transaction number, which you should retain as confirmation of payment.</p>  
+
+<p>If you have any queries please do not hesitate to contact the student finance office at studentfinance@bpp.com or on  03300 603 100.</p>
+                        
+						<p>&nbsp;</p>
+
+                        <p style="font-weight: bold">All fields are mandatory.</p>
+                        <br />
+                        <br />
+                        
+                        <!-- http://www.worldpay.dk/support/content.php?page=guides -->
+                        <!-- http://www.rbsworldpay.com/support/bg/index.php?page=development&sub=integration&subsub=examples&c=GR#basic -->
+                        <!-- http://www.rbsworldpay.com/support/kb/bg/paymentresponse/payment_response.html -->
+						<form name="paymentForm" method="post" action="indexnew.php-msg=&apos;1&apos;.html" onSubmit="return validate()" align="center">
+
+								<fieldset>
+                                
+                                <label for='studentname'>Your Name:</label>
+                                <input type="text" name="studentname" id="studentname">
+                                <div style='clear: both'></div>
+                                
+                                <label for='email'>Your Email Address:</label>
+                                <input type="text" name="email" id="email">
+                                <div style='clear: both'></div>
+                                
+                                <label for='address'>Address:</label>
+                                <textarea id='address' name='address'></textarea>
+                                <div style='clear: both'></div>
+                                
+                                <label for='postcode'>Postcode:</label>
+                                <input type="text" name="postcode" id="postcode">
+                                <div style='clear: both'></div>
+                                
+                                <label for='C_SRN'>Your SRN:</label>
+                                <input type="text" name="C_SRN" id="C_SRN">
+                                <div style='clear: both'></div> 
+                                
+                                <p>Please enter the amount you are paying (as shown on your invoice).</p>
+                                <br />
+                                
+                                <label for='amount'>Payment Amount (&pound;):</label>
+                                <input name="amount" type="text" id="amount">
+                                <div style='clear: both'></div>                             
+                                
+								<label for='paymentType'>Payment Type:</label>
+								<select name="paymentType" id="paymentType">
+
+									<option value="0">Payment type</option>
+									<option value="MSCD">Master Card</option>
+									<option value="MAES">Maestro</option>
+									<option value="VISA">Visa (Credit Card)</option>
+									<option value="VIED">Visa Electron</option>
+									<option value="VISD">Visa Delta</option>
+									<option value="VISP">Visa purchasing</option>
+
+									<option value="JCB">JCB</option>
+									<option value="SOLO">Solo</option>
+								</select>
+								<div style="clear: both"></div>
+
+								
+
+                                <br  /><br />
+                                
+                                                                
+                                <button type="submit"><img src='images/next.png' /></button>
+                                </fieldset>
+                                
+                     	</form>
+                        
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<h4>Contact Us</h4>
+						<p>To contact the BPP Finance team please call <strong>03300 603 100</strong> or via e-mail on <a href="mailto:studentfinance@bpp.com">studentfinance@bpp.com</a></p>
+
+						<div class="subFooter">
+							<strong>Registered company:</strong> BPP University Limited <br />
+							<strong>Place of registration:</strong> England <br />
+							<strong>Registration number:</strong> 2609100 <br />
+							<strong>Registered office:</strong> BPP House, Aldine Place, 142-144 Uxbridge Road W12 8AA<br /><br />
+
+							<a href="http://www.bpp.com/bpp-university/terms" target="_blank">Terms and conditions</a>&nbsp;|&nbsp;
+							<a href="http://www.bpp.com/bpp-university/privacy" target="_blank">Privacy</a>&nbsp;|&nbsp;
+							<a href="refunds.php.html">Refunds</a>
+
+						</div>
+						<div class="subFooter" style="text-align: right">
+							<img src="credit-cards.gif" alt="Powered by WorldPay" />
+						</div>
+						<div style="clear: both"></div>
+
+                        </div>
+                        	
+					</div>
+				</div>
+
+			</div>
+            
+	
+			<div id="subNav"><ul><li class="first on"><a title="Home" href="main.php.html"><span>Home</span></a></li><li class=""><a title="Edit my details" href="edit_basic_details.php.html"><span>Edit my details</span></a></li><li class=""><a title="Address Details" href="edit_address_details.php.html"><span>Edit address details</span></a></li><li class=""><a title="Upload Document" href="upload_document.php.html"><span>Upload Documents</span></a></li></ul></div>			
+	
+					
+		</div>
+
+	</div>
+	
+</body>
+</head>
